@@ -67,7 +67,6 @@ productManagerRouter.post("/", async (req, res) => {
   
     try {
         productManager.addProduct(product);
-    //   console.log(product);
       res.status(200).json({ status: "success55", data: product });
     } catch (error) {
       res.status(400).send({ status: "error", data: error.message});

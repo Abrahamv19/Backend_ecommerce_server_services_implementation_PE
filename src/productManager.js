@@ -11,11 +11,11 @@ export class ProductManager {
             if (fs.existsSync(this.path)) {
                 const archive = await fs.promises.readFile(this.path, "utf-8");
                 const products = JSON.parse(archive)
-                // console.log(products);
+             
                 return products;
             } else {
                 const products = await fs.promises.writeFile(this.path, "[]");
-                // console.log(products);
+             
                 return products;
             };
               
@@ -79,14 +79,12 @@ export class ProductManager {
                 return product; 
             }
 
-            // || this.getProductByCode(code)
 
         } catch (error) {
             console.log(error); 
         }
     }
     
-
     getProductById = async (id) => {
         try {
             const archive = await fs.promises.readFile(this.path, "utf-8");

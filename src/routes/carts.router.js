@@ -26,7 +26,6 @@ cartsRouter.post("/", async (req, res)=>{
 cartsRouter.get("/:cid", async (req, res)=>{
     try{
         const { cid } = req.params;
-        // const idCart = parseInt(req.params.cid);
         const getCartByIdResult = await cartManager.getCartById(cid);
         if(typeof getCartByIdResult == "object"){
             return res.status(200).json({status: 'success', data: getCartByIdResult});
@@ -42,8 +41,6 @@ cartsRouter.post("/:cid/products/:pid", async (req, res)=>{
     try{
         const { cid } = req.params;
         const { pid } = req.params;
-        // const idCart = parseInt(req.params.cid);
-        // const idProd = parseInt(req.params.pid);
         const addProductToCartResult = await cartManager.addProductToCart(cid, pid);
         if (typeof addProductToCartResult == "object"){
             return res.status(200).json({status: 'success', data: addProductToCartResult});
